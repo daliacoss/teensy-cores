@@ -350,6 +350,128 @@ static uint8_t joystick_report_desc[] = {
 #endif // JOYSTICK_SIZE
 #endif // JOYSTICK_INTERFACE
 
+#ifdef GAMEPAD_INTERFACE
+static uint8_t gamepad_report_desc[] = {
+        0x05, 0x01,                     // Usage Page (Generic Desktop)
+        0x09, 0x05,                     // Usage (Gamepad)
+        0xA1, 0x01,                     // Collection (Application)
+        0x15, 0x00,                     //   Logical Minimum (0)
+        0x25, 0x01,                     //   Logical Maximum (1)
+        0x75, 0x01,                     //   Report Size (1)
+        0x95, 0x0c,                     //   Report Count (12)
+        0x05, 0x09,                     //   Usage Page (Button)
+        0x19, 0x01,                     //   Usage Minimum (Button #1)
+        0x29, 0x0c,                     //   Usage Maximum (Button #12)
+        0x81, 0x02,                     //   Input (variable,absolute)
+        0x15, 0x00,                     //   Logical Minimum (0)
+        0x25, 0x07,                     //   Logical Maximum (7)
+        0x35, 0x00,                     //   Physical Minimum (0)
+        0x46, 0x3B, 0x01,               //   Physical Maximum (315)
+        0x75, 0x04,                     //   Report Size (4)
+        0x95, 0x01,                     //   Report Count (1)
+        0x65, 0x14,                     //   Unit (20)
+        0x05, 0x01,                     //   Usage Page (Generic Desktop)
+        0x09, 0x39,                     //   Usage (Hat switch)
+        0x81, 0x42,                     //   Input (variable,absolute,null_state)
+        0x05, 0x01,                     //   Usage Page (Generic Desktop)
+        0x09, 0x01,                     //   Usage (Pointer)
+        0xA1, 0x00,                     //   Collection ()
+        0x15, 0x00,                     //     Logical Minimum (0)
+        0x26, 0xFF, 0xFF,               //     Logical Maximum (65535)
+        0x75, 0x10,                     //     Report Size (16)
+        0x95, 0x02,                     //     Report Count (2)
+        0x09, 0x30,                     //     Usage (X)
+        0x09, 0x31,                     //     Usage (Y)
+        0x81, 0x02,                     //     Input (variable,absolute)
+
+        0x15, 0x00,                     //     Logical Minimum (0)
+        0x26, 0xFF, 0x00,               //     Logical Maximum (255)
+        0x75, 0x08,                     //     Report Size (8)
+        0x95, 0x01,                     //     Report Count (1)
+        0x09, 0x32,                     //     Usage (Z)
+        0x81, 0x02,                     //     Input (variable,absolute)
+        0x15, 0x00,                     //     Logical Minimum (0)
+        0x26, 0xFF, 0xFF,               //     Logical Maximum (65535)
+        0x75, 0x10,                     //     Report Size (16)
+        0x95, 0x02,                     //     Report Count (2)
+        0x09, 0x33,                     //     Usage (Rx)
+        0x09, 0x34,                     //     Usage (Ry)
+        0x81, 0x02,                     //     Input (variable,absolute)
+        0x15, 0x00,                     //     Logical Minimum (0)
+        0x26, 0xFF, 0x00,               //     Logical Maximum (255)
+        0x75, 0x08,                     //     Report Size (8)
+        0x95, 0x01,                     //     Report Count (1)
+        0x09, 0x35,                     //     Usage (Rz)
+        0x81, 0x02,                     //     Input (variable,absolute)
+        0xC0,                           //   End Collection
+
+        //0x15, 0x00,                     //   Logical Minimum (0)
+        //0x25, 0x01,                     //   Logical Maximum (1)
+        //0x75, 0x01,                     //   Report Size (1)
+        //0x95, 0x0c,                     //   Report Count (12)
+        //0x05, 0x09,                     //   Usage Page (Button)
+        ////0x09, GAMEPAD_B00,
+        ////0x09, GAMEPAD_B01,
+        ////0x09, GAMEPAD_B02,
+        ////0x09, GAMEPAD_B03,
+        ////0x09, GAMEPAD_B04,
+        ////0x09, GAMEPAD_B05,
+        ////0x09, GAMEPAD_B06,
+        ////0x09, GAMEPAD_B07,
+        ////0x09, GAMEPAD_B08,
+        ////0x09, GAMEPAD_B09,
+        ////0x09, GAMEPAD_B10,
+        ////0x09, GAMEPAD_B11,
+//
+        //0x19, 0x01,                     //   Usage Minimum (Button #1)
+        //0x29, 0x0c,                     //   Usage Maximum (Button #12)
+        //0x81, 0x02,                     //   Input (variable,absolute)
+        //0x15, 0x00,                     //   Logical Minimum (0)
+        //0x25, 0x07,                     //   Logical Maximum (7)
+        //0x35, 0x00,                     //   Physical Minimum (0)
+        //0x46, 0x3B, 0x01,               //   Physical Maximum (315)
+        //0x75, 0x04,                     //   Report Size (4)
+        //0x95, 0x01,                     //   Report Count (1)
+        //0x65, 0x14,                     //   Unit (20)
+        //0x05, 0x01,                     //   Usage Page (Generic Desktop)
+        //0x09, 0x39,                     //   Usage (Hat switch)
+        //0x81, 0x42,                     //   Input (variable,absolute,null_state)
+        //0x05, 0x01,                     //   Usage Page (Generic Desktop)
+        //0x09, 0x01,                     //   Usage (Pointer)
+        //0xA1, 0x00,                     //   Collection ()
+        //0x15, 0x00,                     //     Logical Minimum (0)
+        //0x26, 0xFF, 0xFF,               //     Logical Maximum (65535)
+        //0x75, 0x0A,                     //     Report Size (16)
+        //0x95, 0x06,                     //     Report Count (2)
+        //0x09, 0x30,                     //     Usage (X)
+        //0x09, 0x31,                     //     Usage (Y)
+        //0x81, 0x02,                     //     Input (variable,absolute)
+        //0xC0,                           //   End Collection
+        //0x15, 0x00,                     //   Logical Minimum (0)
+        //0x26, 0xFF, 0x00,               //   Logical Maximum (255)
+        //0x75, 0x08,                     //   Report Size (8)
+        //0x95, 0x01,                     //   Report Count (1)
+        //0x09, 0x32,                     //   Usage (Z)
+        //0x81, 0x02,                     //   Input (variable,absolute)
+        //0xA1, 0x00,                     //   Collection ()
+        //0x15, 0x00,                     //     Logical Minimum (0)
+        //0x26, 0xFF, 0xFF,               //     Logical Maximum (65535)
+        //0x75, 0x0A,                     //     Report Size (16)
+        //0x95, 0x06,                     //     Report Count (2)
+        //0x09, 0x33,                     //     Usage (Rx)
+        //0x09, 0x34,                     //     Usage (Ry)
+        //0x81, 0x02,                     //     Input (variable,absolute)
+        //0xC0,                           //   End Collection
+        //0x15, 0x00,                     //   Logical Minimum (0)
+        //0x26, 0xFF, 0x00,               //   Logical Maximum (255)
+        //0x75, 0x08,                     //   Report Size (8)
+        //0x95, 0x01,                     //   Report Count (1)
+        //0x09, 0x35,                     //   Usage (Rz)
+        //0x81, 0x02,                     //   Input (variable,absolute)
+        0xC0                            // End Collection
+};
+#endif
+
 #ifdef MULTITOUCH_INTERFACE
 // https://forum.pjrc.com/threads/32331-USB-HID-Touchscreen-support-needed
 // https://msdn.microsoft.com/en-us/library/windows/hardware/jj151563%28v=vs.85%29.aspx
@@ -466,7 +588,6 @@ static uint8_t flightsim_report_desc[] = {
 };
 #endif
 
-
 // **************************************************************
 //   USB Descriptor Sizes
 // **************************************************************
@@ -561,7 +682,15 @@ static uint8_t flightsim_report_desc[] = {
 #define JOYSTICK_INTERFACE_DESC_SIZE	0
 #endif
 
-#define MTP_INTERFACE_DESC_POS		JOYSTICK_INTERFACE_DESC_POS+JOYSTICK_INTERFACE_DESC_SIZE
+#define GAMEPAD_INTERFACE_DESC_POS	JOYSTICK_INTERFACE_DESC_POS+JOYSTICK_INTERFACE_DESC_SIZE
+#ifdef  GAMEPAD_INTERFACE
+#define GAMEPAD_INTERFACE_DESC_SIZE	9+9+7
+#define GAMEPAD_HID_DESC_OFFSET	GAMEPAD_INTERFACE_DESC_POS+9
+#else
+#define GAMEPAD_INTERFACE_DESC_SIZE	0
+#endif
+
+#define MTP_INTERFACE_DESC_POS		GAMEPAD_INTERFACE_DESC_POS+GAMEPAD_INTERFACE_DESC_SIZE
 #ifdef  MTP_INTERFACE
 #define MTP_INTERFACE_DESC_SIZE		9+7+7+7
 #else
@@ -1260,6 +1389,35 @@ static uint8_t config_descriptor[CONFIG_DESC_SIZE] = {
         JOYSTICK_INTERVAL,                      // bInterval
 #endif // JOYSTICK_INTERFACE
 
+#ifdef GAMEPAD_INTERFACE
+        // interface descriptor, USB spec 9.6.5, page 267-269, Table 9-12
+        9,                                      // bLength
+        4,                                      // bDescriptorType
+        GAMEPAD_INTERFACE,                     // bInterfaceNumber
+        0,                                      // bAlternateSetting
+        1,                                      // bNumEndpoints
+        0x03,                                   // bInterfaceClass (0x03 = HID)
+        0x00,                                   // bInterfaceSubClass
+        0x00,                                   // bInterfaceProtocol
+        0,                                      // iInterface
+        // HID interface descriptor, HID 1.11 spec, section 6.2.1
+        9,                                      // bLength
+        0x21,                                   // bDescriptorType
+        0x11, 0x01,                             // bcdHID
+        0,                                      // bCountryCode
+        1,                                      // bNumDescriptors
+        0x22,                                   // bDescriptorType
+        LSB(sizeof(gamepad_report_desc)),      // wDescriptorLength
+        MSB(sizeof(gamepad_report_desc)),
+        // endpoint descriptor, USB spec 9.6.6, page 269-271, Table 9-13
+        7,                                      // bLength
+        5,                                      // bDescriptorType
+        GAMEPAD_ENDPOINT | 0x80,               // bEndpointAddress
+        0x03,                                   // bmAttributes (0x03=intr)
+        GAMEPAD_SIZE, 0,                       // wMaxPacketSize
+        GAMEPAD_INTERVAL,                      // bInterval
+#endif // GAMEPAD_INTERFACE
+
 #ifdef MTP_INTERFACE
         // interface descriptor, USB spec 9.6.5, page 267-269, Table 9-12
         9,                                      // bLength
@@ -1863,6 +2021,10 @@ const usb_descriptor_list_t usb_descriptor_list[] = {
 #ifdef JOYSTICK_INTERFACE
         {0x2200, JOYSTICK_INTERFACE, joystick_report_desc, sizeof(joystick_report_desc)},
         {0x2100, JOYSTICK_INTERFACE, config_descriptor+JOYSTICK_HID_DESC_OFFSET, 9},
+#endif
+#ifdef GAMEPAD_INTERFACE
+        {0x2200, GAMEPAD_INTERFACE, gamepad_report_desc, sizeof(gamepad_report_desc)},
+        {0x2100, GAMEPAD_INTERFACE, config_descriptor+GAMEPAD_HID_DESC_OFFSET, 9},
 #endif
 #ifdef RAWHID_INTERFACE
 	{0x2200, RAWHID_INTERFACE, rawhid_report_desc, sizeof(rawhid_report_desc)},

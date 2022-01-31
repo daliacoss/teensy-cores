@@ -946,6 +946,53 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
   #define ENDPOINT14_CONFIG	ENDPOINT_TRANSMIT_ISOCHRONOUS
   #define ENDPOINT15_CONFIG	ENDPOINT_TRANSMIT_ONLY
 
+#elif defined(USB_GAMEPAD)
+  #define VENDOR_ID		0x16C0
+  #define PRODUCT_ID		0x0490
+  #define MANUFACTURER_NAME	{'T','e','e','n','s','y','d','u','i','n','o'}
+  #define MANUFACTURER_NAME_LEN	11
+  #define PRODUCT_NAME		{'G','a','m','e','p','a','d'}
+  #define PRODUCT_NAME_LEN  7
+  #define EP0_SIZE		64
+  #define NUM_ENDPOINTS         3
+  #define NUM_USB_BUFFERS	24
+  #define NUM_INTERFACE		2
+  #define SEREMU_INTERFACE      2	// Serial emulation
+  #define SEREMU_TX_ENDPOINT    1
+  #define SEREMU_TX_SIZE        64
+  #define SEREMU_TX_INTERVAL    1
+  #define SEREMU_RX_ENDPOINT    2
+  #define SEREMU_RX_SIZE        32
+  #define SEREMU_RX_INTERVAL    2
+  #define GAMEPAD_INTERFACE    0	// Gamepad
+  #define GAMEPAD_ENDPOINT     3
+  #define GAMEPAD_INTERVAL     2
+  #define GAMEPAD_SIZE         12
+  #define GAMEPAD_B00          0x01
+  #define GAMEPAD_B01          0x02
+  #define GAMEPAD_B02          0x04
+  #define GAMEPAD_B03          0x05
+  #define GAMEPAD_B04          0x06
+  #define GAMEPAD_B05          0x07
+  #define GAMEPAD_B06          0x08
+  #define GAMEPAD_B07          0x09
+  #define GAMEPAD_B08          0x0a
+  #define GAMEPAD_B09          0x0b
+  #define GAMEPAD_B10          0x0c
+  #define GAMEPAD_B11          0x0d
+  #define GAMEPAD_A0           0x30
+  #define GAMEPAD_A1           0x31
+  #define GAMEPAD_A2           0x32
+  #define GAMEPAD_A3           0x33
+  #define GAMEPAD_A4           0x34
+  #define GAMEPAD_A5           0x35
+  #define ENDPOINT1_CONFIG	ENDPOINT_TRANSMIT_ONLY
+  #define ENDPOINT2_CONFIG	ENDPOINT_RECEIVE_ONLY
+  #define ENDPOINT3_CONFIG	ENDPOINT_TRANSMIT_ONLY
+  #define ENDPOINT4_CONFIG	ENDPOINT_TRANSMIT_ONLY
+  #define ENDPOINT5_CONFIG	ENDPOINT_TRANSMIT_ONLY
+  #define ENDPOINT6_CONFIG	ENDPOINT_TRANSMIT_ONLY
+
 #endif
 
 #ifdef USB_DESC_LIST_DEFINE

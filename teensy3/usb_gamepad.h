@@ -38,6 +38,16 @@
 #include <inttypes.h>
 
 #define USB_GAMEPAD_DATA_LEN (GAMEPAD_SIZE+3)/4
+#define GAMEPAD_DIR_UP 0
+#define GAMEPAD_DIR_UP_RIGHT 1
+#define GAMEPAD_DIR_RIGHT 2
+#define GAMEPAD_DIR_DOWN_RIGHT 3
+#define GAMEPAD_DIR_DOWN 4
+#define GAMEPAD_DIR_DOWN_LEFT 5
+#define GAMEPAD_DIR_LEFT 6
+#define GAMEPAD_DIR_UP_LEFT 7
+#define GAMEPAD_DIR_CENTER 8
+#define GAMEPAD_NUM_BUTTONS 12
 
 // C language implementation
 #ifdef __cplusplus
@@ -45,6 +55,7 @@ extern "C" {
 #endif
 int usb_gamepad_send(void);
 extern uint32_t usb_gamepad_data[USB_GAMEPAD_DATA_LEN];
+extern uint8_t gamepad_report_desc[];
 #ifdef __cplusplus
 }
 #endif
@@ -58,7 +69,7 @@ class usb_gamepad_class
         void end(void) { }
 
         void button(uint8_t button, bool val) {
-            if (button >= 12) return;
+            if (button >= GAMEPAD_NUM_BUTTONS) return;
             if (val) {
                 usb_gamepad_data[0] |= (1 << button);
             }
@@ -78,28 +89,23 @@ class usb_gamepad_class
                 case 1:
                     val_i = val * 0xFFFF;
                     usb_gamepad_data[1] = (usb_gamepad_data[1] & 0xFFFF0000) | val_i;
-                    //usb_gamepad_data[1] = (usb_gamepad_data[1] & 0xFF003FFF) | (val << 14);
                     break;
                 case 2:
                     val_i = val * 0xFF;
                     usb_gamepad_data[1] = (usb_gamepad_data[1] & 0xFF00FFFF) | (val_i << 16);
-                    //Z(val);
                     break;
                 case 3:
                     val_i = val * 0xFFFF;
                     usb_gamepad_data[1] = (usb_gamepad_data[1] & 0x00FFFFFF) | (val_i << 24);
                     usb_gamepad_data[2] = (usb_gamepad_data[2] & 0xFFFFFF00) | val_i >> 8;
-                    //Zrotate(val);
                     break;
                 case 4:
                     val_i = val * 0xFFFF;
                     usb_gamepad_data[2] = (usb_gamepad_data[2] & 0xFF0000FF) | (val_i << 8);
-                    //sliderLeft(val);
                     break;
                 case 5:
                     val_i = val * 0xFF;
                     usb_gamepad_data[2] = (usb_gamepad_data[2] & 0x00FFFFFF) | (val_i << 24);
-                    //sliderRight(val);
                     break;
             }
         }
@@ -112,6 +118,13 @@ class usb_gamepad_class
 
         int send_now(void) {
             return usb_gamepad_send();
+        }
+
+        void set_report_desc_button(uint8_t button, uint8_t code){
+            if (button >= GAMEPAD_NUM_BUTTONS) {
+                return;
+            }
+            gamepad_report_desc[17 + (button * 2)] = code;
         }
 };
 extern usb_gamepad_class Gamepad;

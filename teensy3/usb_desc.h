@@ -971,15 +971,15 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
   #define GAMEPAD_B00          0x01
   #define GAMEPAD_B01          0x02
   #define GAMEPAD_B02          0x03
-  #define GAMEPAD_B03          0x05
-  #define GAMEPAD_B04          0x06
-  #define GAMEPAD_B05          0x07
-  #define GAMEPAD_B06          0x08
-  #define GAMEPAD_B07          0x09
-  #define GAMEPAD_B08          0x0a
-  #define GAMEPAD_B09          0x0b
-  #define GAMEPAD_B10          0x0c
-  #define GAMEPAD_B11          0x0d
+  #define GAMEPAD_B03          0x04
+  #define GAMEPAD_B04          0x05
+  #define GAMEPAD_B05          0x06
+  #define GAMEPAD_B06          0x07
+  #define GAMEPAD_B07          0x08
+  #define GAMEPAD_B08          0x09
+  #define GAMEPAD_B09          0x0a
+  #define GAMEPAD_B10          0x0b
+  #define GAMEPAD_B11          0x0c
   #define GAMEPAD_A0           0x30
   #define GAMEPAD_A1           0x31
   #define GAMEPAD_A2           0x32
@@ -1004,6 +1004,7 @@ typedef struct {
 	uint16_t	length;
 } usb_descriptor_list_t;
 
+extern uint8_t gamepad_report_desc[];
 extern const usb_descriptor_list_t usb_descriptor_list[];
 #endif // NUM_ENDPOINTS
 #endif // USB_DESC_LIST_DEFINE

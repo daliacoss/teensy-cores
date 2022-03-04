@@ -351,7 +351,7 @@ static uint8_t joystick_report_desc[] = {
 #endif // JOYSTICK_INTERFACE
 
 #ifdef GAMEPAD_INTERFACE
-static uint8_t gamepad_report_desc[] = {
+uint8_t gamepad_report_desc[] = {
         0x05, 0x01,                     // Usage Page (Generic Desktop)
         0x09, 0x05,                     // Usage (Gamepad)
         0xA1, 0x01,                     // Collection (Application)
